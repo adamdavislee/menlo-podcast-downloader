@@ -19,7 +19,8 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".Activity">
+    <activity android:name=".Activity"
+	      android:theme="@android:style/Theme.Material">
       <intent-filter>
         <action android:name='adamdavislee.mpd.MAIN'/>
         <category android:name='android.intent.category.DEFAULT'/>
