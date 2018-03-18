@@ -2,10 +2,6 @@
 
 This is a Clojure/Android application.
 
-## Usage
-
-FIXME
-
 ## License
 
 Copyright © 2015 FIXME
