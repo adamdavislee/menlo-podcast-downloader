@@ -3,10 +3,8 @@
           package="adamdavislee.mpd"
           android:versionCode="{{version-code}}"
           android:versionName="{{version-name}}" >
-
   <uses-sdk android:minSdkVersion="15"
             android:targetSdkVersion="{{target-version}}" />
-
   <application
       android:name="neko.App"
       android:icon="@drawable/ic_launcher"
