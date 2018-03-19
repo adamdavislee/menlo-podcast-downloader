@@ -20,4 +20,3 @@
 (defn service-init [] [["NameForThread"] "NameForThread"]) 
 (defn service-onHandleIntent [this i] (download-podcasts))
 (defactivity adamdavislee.mpd.Activity :key :main (onCreate [this bundle] (.superOnCreate this bundle) (.setInexactRepeating (get-service :alarm) AlarmManager/ELAPSED_REALTIME (+ (SystemClock/elapsedRealtime) AlarmManager/INTERVAL_HALF_DAY) AlarmManager/INTERVAL_HALF_DAY (PendingIntent/getService (*a) 0 (Intent. (*a) (resolve 'adamdavislee.mpd.Service)) 0)) (on-ui (set-content-view! (*a) [:linear-layout {:orientation :vertical, :layout-width :fill, :layout-height :wrap :gravity :center} [:button {:text "DOWNLOAD NEW PODCASTS RIGHT NOW" :text-size 24 :padding 128 :on-click (fn [this] (toast-on-ui "SCOURING THE WEB FOR PODCASTS") (download-podcasts))}]]))))
-(.list (io/file (mpddir)))
