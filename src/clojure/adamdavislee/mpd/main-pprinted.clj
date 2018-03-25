@@ -93,10 +93,11 @@
  (.mkdir (io/file (mpddir)))
  (with-open
   [in
-   (io/input-stream (:url podcast))
+   (clojure.java.io/input-stream (:url podcast))
    out
-   (io/output-stream (str (mpddir) "." (filename podcast)))]
-  (io/copy in out))
+   (clojure.java.io/output-stream
+    (str (mpddir) "." (filename podcast)))]
+  (clojure.java.io/copy in out))
  (.renameTo
   (io/file (str (mpddir) "." (filename podcast)))
   (io/file (str (mpddir) (filename podcast))))
@@ -108,7 +109,7 @@
  (->>
   item
   :content
-  (filter (fn* [p1__10732#] (= (first p1__10732#) [:tag :enclosure])))
+  (filter (fn* [p1__10722#] (= (first p1__10722#) [:tag :enclosure])))
   first
   :attrs
   :url))
@@ -119,7 +120,7 @@
  (->>
   item
   :content
-  (filter (fn* [p1__10733#] (= (first p1__10733#) [:tag :title])))
+  (filter (fn* [p1__10723#] (= (first p1__10723#) [:tag :title])))
   first
   :content
   first))
@@ -130,7 +131,7 @@
  (->>
   item
   :content
-  (filter (fn* [p1__10734#] (= (first p1__10734#) [:tag :pubDate])))
+  (filter (fn* [p1__10724#] (= (first p1__10724#) [:tag :pubDate])))
   first
   :content
   first))
@@ -169,9 +170,9 @@
   (it :content)
   (first it)
   (it :content)
-  (filter (fn* [p1__10735#] (some #{[:tag :item]} p1__10735#)) it)
+  (filter (fn* [p1__10725#] (some #{[:tag :item]} p1__10725#)) it)
   (filter
-   (fn* [p1__10736#] (:url p1__10736#))
+   (fn* [p1__10726#] (:url p1__10726#))
    (map
     (fn
      [item]
